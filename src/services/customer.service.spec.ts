@@ -29,7 +29,7 @@ describe('Customer Service', () => {
     describe('POST', () => {
         it('should create and return customer', async () => {
             jest.spyOn(CustomerModel, 'create')
-                .mockImplementation(() => Promise.resolve(<CustomerModel[]>[{id: 1,name: 'Teste'}]))
+                .mockImplementation(() => Promise.resolve(<CustomerModel>{id: 1,name: 'Teste'}))
             const customer = await customerService.create({name: 'Teste'})
             expect(customer.name).toBe('Teste')
         })
