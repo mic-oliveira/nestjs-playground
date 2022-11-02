@@ -12,7 +12,7 @@ describe('Customer Service', () => {
     beforeEach(async () => {
         const app: TestingModule = await Test.createTestingModule({
             imports: [DatabaseModule],
-            providers: [CustomerService, CustomerRepository, CustomerModel, Response]
+            providers: [CustomerService, CustomerRepository, CustomerModel]
         }).compile();
 
         customerService = app.get<CustomerService>(CustomerService);
