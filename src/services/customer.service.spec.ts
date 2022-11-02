@@ -20,13 +20,16 @@ describe('Customer Service', () => {
 
     describe('List', () => {
         it('should return customers list', async () => {
-            jest.spyOn(CustomerModel, 'findAll').mockImplementation(() => Promise.resolve(<CustomerModel[]>[{}]))
+            jest.spyOn(CustomerModel, 'findAll')
+                .mockImplementation(() => Promise.resolve(<CustomerModel[]>[{}]))
             const customers = await customerService.list();
             expect(customers).toBeInstanceOf(Array<CustomerModel>)
         });
     });
     describe('POST', () => {
         it('should create and return customer', async () => {
+            jest.spyOn(CustomerModel, 'create')
+                .mockImplementation(() => Promise.resolve(<CustomerModel[]>[{id: 1,name: 'Teste'}]))
             const customer = await customerService.create({name: 'Teste'})
             expect(customer.name).toBe('Teste')
         })
