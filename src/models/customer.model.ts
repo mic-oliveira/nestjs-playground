@@ -1,2 +1,8 @@
+import {Column, Model, Table} from "sequelize-typescript";
 
-export class CustomerModel {}
+@Table
+export class CustomerModel extends Model<CustomerModel>{
+
+    @Column
+    name: string;
+}
